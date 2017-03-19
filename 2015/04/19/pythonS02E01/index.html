@@ -3,56 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo简易使用说明 | Ding Jian&#39;s Blog</title>
+  <title>Python高级编程:线程和进程 | Ding Jian&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo初步使用心得
-建立一个GitHub账号
-新建个仓库
-安装Git
-安装Hexo
-配置Hexo
-推送到GitHub创建一个新的Post1$ hexo new &quot;新文章名字&quot;
-
-
-其实直接在source文件夹下面的_posts直接新建md文件来的更快.哈哈
-运行服务1$ hexo server
-生成静态页面1$ hexo generate
-本地测试 可以使用下面命令,然后再浏览器打开就能马上看">
+  <meta name="description" content="线程 简介:什么是线程:什么是进程:先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo简易使用说明">
-<meta property="og:url" content="//aliengeeker.github.io/2015/03/15/hello-world/index.html">
+<meta property="og:title" content="Python高级编程:线程和进程">
+<meta property="og:url" content="//aliengeeker.github.io/2015/04/19/pythonS02E01/index.html">
 <meta property="og:site_name" content="Ding Jian's Blog">
-<meta property="og:description" content="Hexo初步使用心得
-建立一个GitHub账号
-新建个仓库
-安装Git
-安装Hexo
-配置Hexo
-推送到GitHub创建一个新的Post1$ hexo new &quot;新文章名字&quot;
-
-
-其实直接在source文件夹下面的_posts直接新建md文件来的更快.哈哈
-运行服务1$ hexo server
-生成静态页面1$ hexo generate
-本地测试 可以使用下面命令,然后再浏览器打开就能马上看">
-<meta property="og:image" content="https://raw.githubusercontent.com/aliengeeker/blogimgs/master/hw.png">
-<meta property="og:updated_time" content="2017-03-19T14:10:28.493Z">
+<meta property="og:description" content="线程 简介:什么是线程:什么是进程:先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)">
+<meta property="og:image" content="https://raw.githubusercontent.com/aliengeeker/blogimgs/master/-55b29b9a93c25bfd.gif">
+<meta property="og:updated_time" content="2017-03-19T14:39:16.035Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo简易使用说明">
-<meta name="twitter:description" content="Hexo初步使用心得
-建立一个GitHub账号
-新建个仓库
-安装Git
-安装Hexo
-配置Hexo
-推送到GitHub创建一个新的Post1$ hexo new &quot;新文章名字&quot;
-
-
-其实直接在source文件夹下面的_posts直接新建md文件来的更快.哈哈
-运行服务1$ hexo server
-生成静态页面1$ hexo generate
-本地测试 可以使用下面命令,然后再浏览器打开就能马上看">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/aliengeeker/blogimgs/master/hw.png">
+<meta name="twitter:title" content="Python高级编程:线程和进程">
+<meta name="twitter:description" content="线程 简介:什么是线程:什么是进程:先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/aliengeeker/blogimgs/master/-55b29b9a93c25bfd.gif">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -256,11 +220,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-pythonS02E01" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/03/15/hello-world/" class="article-date">
-      <time datetime="2015-03-15T11:52:15.000Z" itemprop="datePublished">2015-03-15</time>
+      <a href="/2015/04/19/pythonS02E01/" class="article-date">
+      <time datetime="2015-04-19T11:52:15.000Z" itemprop="datePublished">2015-04-19</time>
 </a>
     </div>
   
@@ -273,7 +237,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo简易使用说明
+      Python高级编程:线程和进程
     </h1>
   
 
@@ -282,13 +246,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/博客/">博客</a>
+    <a class="article-category-link" href="/categories/编程/">编程</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -298,23 +262,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><center><img src="https://raw.githubusercontent.com/aliengeeker/blogimgs/master/hw.png" alt="test"></center></p>
-<h1 id="Hexo初步使用心得"><a href="#Hexo初步使用心得" class="headerlink" title="Hexo初步使用心得"></a>Hexo初步使用心得</h1><ul>
-<li>建立一个GitHub账号</li>
-<li>新建个仓库</li>
-<li>安装Git</li>
-<li>安装Hexo</li>
-<li>配置Hexo</li>
-<li>推送到GitHub<h2 id="创建一个新的Post"><a href="#创建一个新的Post" class="headerlink" title="创建一个新的Post"></a>创建一个新的Post</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"新文章名字"</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>其实直接在source文件夹下面的_posts直接新建md文件来的更快.哈哈</p>
-<h2 id="运行服务"><a href="#运行服务" class="headerlink" title="运行服务"></a>运行服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<h2 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>本地测试 可以使用下面命令,然后再浏览器打开就能马上看到效果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo s -g</div></pre></td></tr></table></figure></p>
-<h2 id="发布到github"><a href="#发布到github" class="headerlink" title="发布到github"></a>发布到github</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"你的用户名"</span></div><div class="line">$ git config --global user.email <span class="string">"你的邮箱"</span></div><div class="line">$ cnpm install hexo-deployer-git --save</div><div class="line">$ hexo d -g</div></pre></td></tr></table></figure>
-<p>谢谢围观.</p>
-
+        <p><center><img src="https://raw.githubusercontent.com/aliengeeker/blogimgs/master/-55b29b9a93c25bfd.gif" alt="人生苦短,我用Python"><center></center></center></p>
+<h1 id="线程-简介"><a href="#线程-简介" class="headerlink" title="线程 简介:"></a>线程 简介:</h1><h2 id="什么是线程"><a href="#什么是线程" class="headerlink" title="什么是线程:"></a>什么是线程:</h2><h2 id="什么是进程"><a href="#什么是进程" class="headerlink" title="什么是进程:"></a>什么是进程:</h2><h2 id="先占个坑-后面有时间再慢慢写-嘿嘿-←-←"><a href="#先占个坑-后面有时间再慢慢写-嘿嘿-←-←" class="headerlink" title="先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)"></a>先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)</h2>
       
       
         <div class="page-reward">
@@ -368,13 +317,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/03/15/hello-world/">Hexo简易使用说明</a></p>
+        <p><span>本文标题:</span><a href="/2015/04/19/pythonS02E01/">Python高级编程:线程和进程</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Ding  Jian 的个人博客">Ding  Jian</a></p>
-        <p><span>发布时间:</span>2015年03月15日 - 19时52分</p>
-        <p><span>最后更新:</span>2017年03月19日 - 22时10分</p>
+        <p><span>发布时间:</span>2015年04月19日 - 19时52分</p>
+        <p><span>最后更新:</span>2017年03月19日 - 22时39分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/03/15/hello-world/" title="Hexo简易使用说明">//aliengeeker.github.io/2015/03/15/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: //aliengeeker.github.io/2015/03/15/hello-world/　　作者: Ding  Jian" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/04/19/pythonS02E01/" title="Python高级编程:线程和进程">//aliengeeker.github.io/2015/04/19/pythonS02E01/</a>
+            <span class="copy-path" data-clipboard-text="原文: //aliengeeker.github.io/2015/04/19/pythonS02E01/　　作者: Ding  Jian" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -387,15 +336,20 @@
 
 <nav id="article-nav">
   
-    <a href="/2015/04/19/pythonS02E01/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/04/19/pythonS01E01/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Python高级编程:线程和进程
+          《Re：从零开始的Python世界生活》第一季第一话
         
       </div>
     </a>
   
+  
+    <a href="/2015/03/15/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo简易使用说明</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -404,7 +358,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo初步使用心得"><span class="toc-number">1.</span> <span class="toc-text">Hexo初步使用心得</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个新的Post"><span class="toc-number">1.1.</span> <span class="toc-text">创建一个新的Post</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行服务"><span class="toc-number">1.2.</span> <span class="toc-text">运行服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成静态页面"><span class="toc-number">1.3.</span> <span class="toc-text">生成静态页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布到github"><span class="toc-number">1.4.</span> <span class="toc-text">发布到github</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#线程-简介"><span class="toc-number">1.</span> <span class="toc-text">线程 简介:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是线程"><span class="toc-number">1.1.</span> <span class="toc-text">什么是线程:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是进程"><span class="toc-number">1.2.</span> <span class="toc-text">什么是进程:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#先占个坑-后面有时间再慢慢写-嘿嘿-←-←"><span class="toc-number">1.3.</span> <span class="toc-text">先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -452,7 +406,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/03/15/hello-world/" data-title="Hexo简易使用说明" data-url="//aliengeeker.github.io/2015/03/15/hello-world/"></div>
+    <div class="ds-thread" data-thread-key="2015/04/19/pythonS02E01/" data-title="Python高级编程:线程和进程" data-url="//aliengeeker.github.io/2015/04/19/pythonS02E01/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -475,13 +429,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/04/19/pythonS02E01/" title="上一篇: Python高级编程:线程和进程">
+            <a href="/2015/04/19/pythonS01E01/" title="上一篇: 《Re：从零开始的Python世界生活》第一季第一话">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2015/03/15/hello-world/" title="下一篇: Hexo简易使用说明">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/MySQLS01E01/">MySQL教程之:从删库到跑路</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/04/19/pythonS01E01/">《Re：从零开始的Python世界生活》第一季第一话</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/04/19/pythonS02E01/">Python高级编程:线程和进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/15/hello-world/">Hexo简易使用说明</a></li></ul>
