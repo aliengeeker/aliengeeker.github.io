@@ -18,7 +18,7 @@
 
 进程需要资源分配,线程只是进程里面CPU调度和分配的基本单位.一个进程至少有一个线程.线程占用资源少,并发性高.线程也是完成多">
 <meta property="og:image" content="//aliengeeker.github.io/imgs/001.gif">
-<meta property="og:updated_time" content="2017-03-20T03:27:12.584Z">
+<meta property="og:updated_time" content="2017-03-20T07:38:55.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python高级编程:线程">
 <meta name="twitter:description" content="线程-thread简介:
@@ -74,7 +74,7 @@
         </hgroup>
 
         
-        <p class="header-subtitle">Python,Hack,Crack,Finance,Security</p>
+        <p class="header-subtitle">Python,Hack,Crack,Finance,Security,Quant</p>
         
         
         
@@ -172,7 +172,7 @@
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">纯海迷、爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                    <div id="js-aboutme">爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
                 </section>
                 
             </div>
@@ -197,7 +197,7 @@
               <h1 class="header-author"><a href="/" title="Me">Ding  Jian</a></h1>
             </hgroup>
             
-            <p class="header-subtitle">Python,Hack,Crack,Finance,Security</p>
+            <p class="header-subtitle">Python,Hack,Crack,Finance,Security,Quant</p>
             
             <nav class="header-menu">
                 <ul>
@@ -281,8 +281,8 @@
 <h2 id="线程例子1"><a href="#线程例子1" class="headerlink" title="线程例子1:"></a>线程例子1:</h2></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding=utf-8</span></div><div class="line"><span class="keyword">import</span> threading <span class="comment">#导入模块</span></div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Download</span><span class="params">()</span>:</span><span class="comment">#定义函数</span></div><div class="line">    print(<span class="string">"下载1MB文件"</span>)<span class="comment">#我们假装实际下载了1M文件.</span></div><div class="line">    time.sleep(<span class="number">1</span>)<span class="comment">#延时1s</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:<span class="comment">#模块测试</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):<span class="comment">#遍历5次</span></div><div class="line">        t = threading.Thread(target=Download)<span class="comment">#调用多线程同时执行</span></div><div class="line">        t.start() <span class="comment">#开始线程t</span></div><div class="line">        <span class="comment">#Download() #单线程模式,顺序执行</span></div></pre></td></tr></table></figure>
-<p>如果只调用saySorry()为顺序执行5次,但是如果使用threading.Thread(),可以一次性全部执行.</p>
-<h2 id="线程例子2"><a href="#线程例子2" class="headerlink" title="线程例子2:"></a>线程例子2:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTread</span><span class="params">(threading.Thread)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">            time.sleep(<span class="number">1</span>)</div><div class="line">            msg = <span class="string">'我是'</span>+self.name+<span class="string">'@'</span>+str(i)</div><div class="line">            print(msg)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'线程结束'</span>)</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    t = MyTread()</div><div class="line">    t.start()</div></pre></td></tr></table></figure>
+<p>如果只调用Download()为顺序执行5次,但是如果使用threading.Thread(),可以一次性全部执行.</p>
+<h2 id="线程例子2"><a href="#线程例子2" class="headerlink" title="线程例子2:"></a>线程例子2:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTread</span><span class="params">(threading.Thread)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">            time.sleep(<span class="number">1</span>)</div><div class="line">            msg = <span class="string">'我是'</span>+self.name+<span class="string">'@'</span>+str(i)</div><div class="line">            print(msg)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'对象引用计数为0,进程线程结束'</span>)</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    t = MyTread()</div><div class="line">    t.start()</div></pre></td></tr></table></figure>
 <h2 id="互斥锁"><a href="#互斥锁" class="headerlink" title="互斥锁"></a>互斥锁</h2>
       
       
@@ -340,7 +340,7 @@
         <p><span>本文标题:</span><a href="/2015/04/19/pythonS02E02/">Python高级编程:线程</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Ding  Jian 的个人博客">Ding  Jian</a></p>
         <p><span>发布时间:</span>2015年04月19日 - 19时52分</p>
-        <p><span>最后更新:</span>2017年03月20日 - 11时27分</p>
+        <p><span>最后更新:</span>2017年03月20日 - 15时38分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2015/04/19/pythonS02E02/" title="Python高级编程:线程">//aliengeeker.github.io/2015/04/19/pythonS02E02/</a>
             <span class="copy-path" data-clipboard-text="原文: //aliengeeker.github.io/2015/04/19/pythonS02E02/　　作者: Ding  Jian" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
