@@ -368,7 +368,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/19/pythonS02E01/">Python高级编程:线程和进程</a>
+      <a class="article-title" href="/2015/04/19/pythonS02E01/">Python高级编程:进程</a>
     </h1>
   
 
@@ -379,7 +379,81 @@
       
           
         <p><center><img src="https://raw.githubusercontent.com/aliengeeker/blogimgs/master/-55b29b9a93c25bfd.gif" alt="人生苦短,我用Python"><center></center></center></p>
-<h1 id="线程-简介"><a href="#线程-简介" class="headerlink" title="线程 简介:"></a>线程 简介:</h1><h2 id="什么是线程"><a href="#什么是线程" class="headerlink" title="什么是线程:"></a>什么是线程:</h2><h2 id="什么是进程"><a href="#什么是进程" class="headerlink" title="什么是进程:"></a>什么是进程:</h2><h2 id="先占个坑-后面有时间再慢慢写-嘿嘿-←-←"><a href="#先占个坑-后面有时间再慢慢写-嘿嘿-←-←" class="headerlink" title="先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)"></a>先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)</h2>
+<h1 id="进程-简介"><a href="#进程-简介" class="headerlink" title="进程 简介:"></a>进程 简介:</h1><h2 id="什么是进程"><a href="#什么是进程" class="headerlink" title="什么是进程:"></a>什么是进程:</h2><h2 id="先占个坑-后面有时间再慢慢写-嘿嘿-←-←"><a href="#先占个坑-后面有时间再慢慢写-嘿嘿-←-←" class="headerlink" title="先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)"></a>先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)</h2>
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-pythonS02E02" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/04/19/pythonS02E02/" class="article-date">
+      <time datetime="2015-04-19T11:52:15.000Z" itemprop="datePublished">2015-04-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/19/pythonS02E02/">Python高级编程:线程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><center><img src="imgs/001.gif" alt="线程"><center></center></center></p>
+<h2 id="线程-thread简介"><a href="#线程-thread简介" class="headerlink" title="线程-thread简介:"></a>线程-thread简介:</h2><ul>
+<li><p>如果说多进程就是多开QQ,那么多线程就是在一个QQ内同时多个窗口聊天.迅雷等下载软件为什么能够提速?迅雷先将需要下载的内容进行分块,利用多线程链接多个IP同时下载,从而实现下载加速.BT下载人越多,打开的线程越多,下载就越快,也是一样的道理.</p>
+</li>
+<li><p>进程需要资源分配,线程只是进程里面CPU调度和分配的基本单位.一个进程至少有一个线程.线程占用资源少,并发性高.线程也是完成多任务的一种实现方式.Python的threading模块是对thread做了一些包装,更加方便调用.</p>
+</li>
+<li><p>线程分为主线程和子线程.主线程需要判断子线程全部结束,才会结束自己.</p>
+<h2 id="线程例子1"><a href="#线程例子1" class="headerlink" title="线程例子1:"></a>线程例子1:</h2></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding=utf-8</span></div><div class="line"><span class="keyword">import</span> threading <span class="comment">#导入模块</span></div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Download</span><span class="params">()</span>:</span><span class="comment">#定义函数</span></div><div class="line">    print(<span class="string">"下载1MB文件"</span>)<span class="comment">#我们假装实际下载了1M文件.</span></div><div class="line">    time.sleep(<span class="number">1</span>)<span class="comment">#延时1s</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:<span class="comment">#模块测试</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):<span class="comment">#遍历5次</span></div><div class="line">        t = threading.Thread(target=Download)<span class="comment">#调用多线程同时执行</span></div><div class="line">        t.start() <span class="comment">#开始线程t</span></div><div class="line">        <span class="comment">#Download() #单线程模式,顺序执行</span></div></pre></td></tr></table></figure>
+<p>如果只调用saySorry()为顺序执行5次,但是如果使用threading.Thread(),可以一次性全部执行.</p>
+<h2 id="线程例子2"><a href="#线程例子2" class="headerlink" title="线程例子2:"></a>线程例子2:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTread</span><span class="params">(threading.Thread)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">            time.sleep(<span class="number">1</span>)</div><div class="line">            msg = <span class="string">'我是'</span>+self.name+<span class="string">'@'</span>+str(i)</div><div class="line">            print(msg)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'线程结束'</span>)</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    t = MyTread()</div><div class="line">    t.start()</div></pre></td></tr></table></figure>
+<h2 id="互斥锁"><a href="#互斥锁" class="headerlink" title="互斥锁"></a>互斥锁</h2>
       
       
     </div>
