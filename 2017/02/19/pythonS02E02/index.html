@@ -3,20 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Python高级编程:进程 | Ding Jian&#39;s Blog</title>
+  <title>Python高级编程:线程 | Ding Jian&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="进程 简介:什么是进程:先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)">
+  <meta name="description" content="线程-thread简介:
+如果说多进程就是多开QQ,那么多线程就是在一个QQ内同时多个窗口聊天.迅雷等下载软件为什么能够提速?迅雷先将需要下载的内容进行分块,利用多线程链接多个IP同时下载,从而实现下载加速.BT下载人越多,打开的线程越多,下载就越快,也是一样的道理.
+
+进程需要资源分配,线程只是进程里面CPU调度和分配的基本单位.一个进程至少有一个线程.线程占用资源少,并发性高.线程也是完成多任">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python高级编程:进程">
-<meta property="og:url" content="//aliengeeker.github.io/2017/04/18/pythonS02E01/index.html">
+<meta property="og:title" content="Python高级编程:线程">
+<meta property="og:url" content="//aliengeeker.github.io/2017/02/19/pythonS02E02/index.html">
 <meta property="og:site_name" content="Ding Jian's Blog">
-<meta property="og:description" content="进程 简介:什么是进程:先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)">
-<meta property="og:image" content="https://raw.githubusercontent.com/aliengeeker/aliengeeker.github.io/master/img/xxx.png">
-<meta property="og:updated_time" content="2017-03-21T01:38:14.644Z">
+<meta property="og:description" content="线程-thread简介:
+如果说多进程就是多开QQ,那么多线程就是在一个QQ内同时多个窗口聊天.迅雷等下载软件为什么能够提速?迅雷先将需要下载的内容进行分块,利用多线程链接多个IP同时下载,从而实现下载加速.BT下载人越多,打开的线程越多,下载就越快,也是一样的道理.
+
+进程需要资源分配,线程只是进程里面CPU调度和分配的基本单位.一个进程至少有一个线程.线程占用资源少,并发性高.线程也是完成多任">
+<meta property="og:updated_time" content="2017-03-22T15:22:00.446Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python高级编程:进程">
-<meta name="twitter:description" content="进程 简介:什么是进程:先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/aliengeeker/aliengeeker.github.io/master/img/xxx.png">
+<meta name="twitter:title" content="Python高级编程:线程">
+<meta name="twitter:description" content="线程-thread简介:
+如果说多进程就是多开QQ,那么多线程就是在一个QQ内同时多个窗口聊天.迅雷等下载软件为什么能够提速?迅雷先将需要下载的内容进行分块,利用多线程链接多个IP同时下载,从而实现下载加速.BT下载人越多,打开的线程越多,下载就越快,也是一样的道理.
+
+进程需要资源分配,线程只是进程里面CPU调度和分配的基本单位.一个进程至少有一个线程.线程占用资源少,并发性高.线程也是完成多任">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -220,11 +227,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-pythonS02E01" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-pythonS02E02" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/18/pythonS02E01/" class="article-date">
-      <time datetime="2017-04-18T11:52:15.000Z" itemprop="datePublished">2017-04-18</time>
+      <a href="/2017/02/19/pythonS02E02/" class="article-date">
+      <time datetime="2017-02-19T11:52:15.000Z" itemprop="datePublished">2017-02-19</time>
 </a>
     </div>
   
@@ -237,7 +244,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Python高级编程:进程
+      Python高级编程:线程
     </h1>
   
 
@@ -262,8 +269,18 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><center><img src="https://raw.githubusercontent.com/aliengeeker/aliengeeker.github.io/master/img/xxx.png" alt="人生苦短,我用Python"><center></center></center></p>
-<h1 id="进程-简介"><a href="#进程-简介" class="headerlink" title="进程 简介:"></a>进程 简介:</h1><h2 id="什么是进程"><a href="#什么是进程" class="headerlink" title="什么是进程:"></a>什么是进程:</h2><h2 id="先占个坑-后面有时间再慢慢写-嘿嘿-←-←"><a href="#先占个坑-后面有时间再慢慢写-嘿嘿-←-←" class="headerlink" title="先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)"></a>先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)</h2>
+        <h2 id="线程-thread简介"><a href="#线程-thread简介" class="headerlink" title="线程-thread简介:"></a>线程-thread简介:</h2><ul>
+<li><p>如果说多进程就是多开QQ,那么多线程就是在一个QQ内同时多个窗口聊天.迅雷等下载软件为什么能够提速?迅雷先将需要下载的内容进行分块,利用多线程链接多个IP同时下载,从而实现下载加速.BT下载人越多,打开的线程越多,下载就越快,也是一样的道理.</p>
+</li>
+<li><p>进程需要资源分配,线程只是进程里面CPU调度和分配的基本单位.一个进程至少有一个线程.线程占用资源少,并发性高.线程也是完成多任务的一种实现方式.Python的threading模块是对thread做了一些包装,更加方便调用.</p>
+</li>
+<li><p>线程分为主线程和子线程.主线程需要判断子线程全部结束,才会结束自己.</p>
+<h2 id="线程例子1"><a href="#线程例子1" class="headerlink" title="线程例子1:"></a>线程例子1:</h2></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding=utf-8</span></div><div class="line"><span class="keyword">import</span> threading <span class="comment">#导入模块</span></div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Download</span><span class="params">()</span>:</span><span class="comment">#定义函数</span></div><div class="line">    print(<span class="string">"下载1MB文件"</span>)<span class="comment">#我们假装实际下载了1M文件.</span></div><div class="line">    time.sleep(<span class="number">1</span>)<span class="comment">#延时1s</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:<span class="comment">#模块测试</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):<span class="comment">#遍历5次</span></div><div class="line">        t = threading.Thread(target=Download)<span class="comment">#调用多线程同时执行</span></div><div class="line">        t.start() <span class="comment">#开始线程t</span></div><div class="line">        <span class="comment">#Download() #单线程模式,顺序执行</span></div></pre></td></tr></table></figure>
+<p>如果只调用Download()为顺序执行5次,但是如果使用threading.Thread(),可以一次性全部执行.</p>
+<h2 id="线程例子2"><a href="#线程例子2" class="headerlink" title="线程例子2:"></a>线程例子2:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTread</span><span class="params">(threading.Thread)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">            time.sleep(<span class="number">1</span>)</div><div class="line">            msg = <span class="string">'我是'</span>+self.name+<span class="string">'@'</span>+str(i)</div><div class="line">            print(msg)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'对象引用计数为0,进程线程结束'</span>)</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    t = MyTread()</div><div class="line">    t.start()</div></pre></td></tr></table></figure>
+<h2 id="互斥锁"><a href="#互斥锁" class="headerlink" title="互斥锁"></a>互斥锁</h2>
       
       
         <div class="page-reward">
@@ -317,13 +334,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/04/18/pythonS02E01/">Python高级编程:进程</a></p>
+        <p><span>本文标题:</span><a href="/2017/02/19/pythonS02E02/">Python高级编程:线程</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Ding  Jian 的个人博客">Ding  Jian</a></p>
-        <p><span>发布时间:</span>2017年04月18日 - 19时52分</p>
-        <p><span>最后更新:</span>2017年03月21日 - 09时38分</p>
+        <p><span>发布时间:</span>2017年02月19日 - 19时52分</p>
+        <p><span>最后更新:</span>2017年03月22日 - 23时22分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/18/pythonS02E01/" title="Python高级编程:进程">//aliengeeker.github.io/2017/04/18/pythonS02E01/</a>
-            <span class="copy-path" data-clipboard-text="原文: //aliengeeker.github.io/2017/04/18/pythonS02E01/　　作者: Ding  Jian" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/19/pythonS02E02/" title="Python高级编程:线程">//aliengeeker.github.io/2017/02/19/pythonS02E02/</a>
+            <span class="copy-path" data-clipboard-text="原文: //aliengeeker.github.io/2017/02/19/pythonS02E02/　　作者: Ding  Jian" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -336,9 +353,18 @@
 
 <nav id="article-nav">
   
+    <a href="/2017/02/21/pythonS02E03/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Python高级编程:网络编程
+        
+      </div>
+    </a>
   
-    <a href="/2017/03/22/lantern/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">解决安装Lantern蓝灯之后IE无法上网的问题</div>
+  
+    <a href="/2017/02/18/pythonS02E01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python高级编程:进程</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -349,7 +375,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#进程-简介"><span class="toc-number">1.</span> <span class="toc-text">进程 简介:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是进程"><span class="toc-number">1.1.</span> <span class="toc-text">什么是进程:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#先占个坑-后面有时间再慢慢写-嘿嘿-←-←"><span class="toc-number">1.2.</span> <span class="toc-text">先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#线程-thread简介"><span class="toc-number">1.</span> <span class="toc-text">线程-thread简介:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程例子1"><span class="toc-number">2.</span> <span class="toc-text">线程例子1:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程例子2"><span class="toc-number">3.</span> <span class="toc-text">线程例子2:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#互斥锁"><span class="toc-number">4.</span> <span class="toc-text">互斥锁</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -397,7 +423,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/04/18/pythonS02E01/" data-title="Python高级编程:进程" data-url="//aliengeeker.github.io/2017/04/18/pythonS02E01/"></div>
+    <div class="ds-thread" data-thread-key="2017/02/19/pythonS02E02/" data-title="Python高级编程:线程" data-url="//aliengeeker.github.io/2017/02/19/pythonS02E02/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -420,16 +446,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/02/21/pythonS02E03/" title="上一篇: Python高级编程:网络编程">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/03/22/lantern/" title="下一篇: 解决安装Lantern蓝灯之后IE无法上网的问题">
+            <a href="/2017/02/18/pythonS02E01/" title="下一篇: Python高级编程:进程">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/18/pythonS02E01/">Python高级编程:进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/lantern/">解决安装Lantern蓝灯之后IE无法上网的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/pythonS02E03/">Python高级编程:网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/MySQLS01E01/">MySQL教程之:从删库到跑路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/hello-world/">Hexo简易使用说明</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/04/19/pythonS02E02/">Python高级编程:线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/04/19/pythonS01E01/">《Re：从零开始的Python世界生活》第一季第一话</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/lantern/">解决安装Lantern蓝灯之后IE无法上网的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/MySQLS01E01/">MySQL教程之:从删库到跑路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/hello-world/">Hexo简易使用说明</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/pythonS02E03/">Python高级编程:网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/19/pythonS02E02/">Python高级编程:线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/pythonS02E01/">Python高级编程:进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/pythonS01E01/">《Re：从零开始的Python世界生活》第一季第一话</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
