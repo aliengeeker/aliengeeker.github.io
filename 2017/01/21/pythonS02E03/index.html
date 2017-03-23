@@ -5,14 +5,17 @@
   
   <title>Python高级编程:网络编程 | Ding Jian&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="TCP编程读取百度的首页,打印http头,然后把网页内容存进baidu.html 1234567891011121314151617181920212223242526272829#导入socket库import socket#创建一个sockets = socket.socket(socket.AF_INET,socket.SOCK_STREAM)#如果是ipv6,那么就是INET6,SOC">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Python高级编程:网络编程">
 <meta property="og:url" content="//aliengeeker.github.io/2017/01/21/pythonS02E03/index.html">
 <meta property="og:site_name" content="Ding Jian's Blog">
+<meta property="og:description" content="TCP编程读取百度的首页,打印http头,然后把网页内容存进baidu.html 1234567891011121314151617181920212223242526272829#导入socket库import socket#创建一个sockets = socket.socket(socket.AF_INET,socket.SOCK_STREAM)#如果是ipv6,那么就是INET6,SOC">
 <meta property="og:image" content="https://raw.githubusercontent.com/aliengeeker/aliengeeker.github.io/master/img/wangluo.jpg">
-<meta property="og:updated_time" content="2017-03-23T09:00:14.400Z">
+<meta property="og:updated_time" content="2017-03-23T15:20:22.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python高级编程:网络编程">
+<meta name="twitter:description" content="TCP编程读取百度的首页,打印http头,然后把网页内容存进baidu.html 1234567891011121314151617181920212223242526272829#导入socket库import socket#创建一个sockets = socket.socket(socket.AF_INET,socket.SOCK_STREAM)#如果是ipv6,那么就是INET6,SOC">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/aliengeeker/aliengeeker.github.io/master/img/wangluo.jpg">
   
   
@@ -141,7 +144,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+                        <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
                     </div>
                 </section>
                 
@@ -260,6 +263,8 @@
       
           
         <p> <center><img src="https://raw.githubusercontent.com/aliengeeker/aliengeeker.github.io/master/img/wangluo.jpg" width="400" height="200" alt="网络"></center></p>
+<h2 id="TCP编程"><a href="#TCP编程" class="headerlink" title="TCP编程"></a>TCP编程</h2><h3 id="读取百度的首页-打印http头-然后把网页内容存进baidu-html"><a href="#读取百度的首页-打印http头-然后把网页内容存进baidu-html" class="headerlink" title="读取百度的首页,打印http头,然后把网页内容存进baidu.html"></a>读取百度的首页,打印http头,然后把网页内容存进baidu.html</h3> <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#导入socket库</span></div><div class="line"><span class="keyword">import</span> socket</div><div class="line"><span class="comment">#创建一个socket</span></div><div class="line">s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)</div><div class="line"><span class="comment">#如果是ipv6,那么就是INET6,SOCK_STREAM为面向流的TCP协议</span></div><div class="line"><span class="comment">#然后建立一个连接</span></div><div class="line">s.connect((<span class="string">'www.baidu.com'</span>,<span class="number">80</span>))</div><div class="line"><span class="comment">#注意里面的参数为一个tuple,地址要加引号,端口不要引号</span></div><div class="line"><span class="comment">#建立连接之后向百度发送request,然后等待response.</span></div><div class="line">s.send(<span class="string">b'GET / HTTP/1.1\r\nHost:www.baidu.com\r\nConnection:close\r\n\r\n'</span>)</div><div class="line"><span class="comment">#接下来就是接受数据和写入数据了</span></div><div class="line">buffer =[]<span class="comment">#建立一个空列表</span></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    <span class="comment">#控制每一次接收数据的大小</span></div><div class="line">    d = s.recv(<span class="number">1024</span>)</div><div class="line">    <span class="keyword">if</span> d:<span class="comment">#如果数据不为空</span></div><div class="line">        buffer.append(d)</div><div class="line">        <span class="comment">#就把数据片段加入d列表</span></div><div class="line">    <span class="keyword">else</span>:<span class="comment">#如果数据为空了</span></div><div class="line">        <span class="keyword">break</span><span class="comment">#退出循环</span></div><div class="line">data = <span class="string">b''</span>.join(buffer)<span class="comment">#在buffer列表里加上b",同时把列表合并了</span></div><div class="line">s.close()<span class="comment">#关闭socket</span></div><div class="line"><span class="comment">#接下来就要保存文件了</span></div><div class="line">header,html = data.split(<span class="string">b'\r\n\r\n'</span>,<span class="number">1</span>)</div><div class="line"><span class="comment">#把数据切分,然后解包,前面的赋值给header,后面的赋值给HTML</span></div><div class="line">print(header.decode(<span class="string">'utf-8'</span>))</div><div class="line"><span class="comment">#解码之后打印</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'baidu.html'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.write(html)</div></pre></td></tr></table></figure>
+<p>http头信息如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 200 OK</div><div class="line">Date: Thu, 23 Mar 2017 15:07:31 GMT</div><div class="line">Content-Type: text/html</div><div class="line">Content-Length: 14613</div><div class="line">Last-Modified: Tue, 14 Mar 2017 07:30:00 GMT</div><div class="line">Connection: Close</div><div class="line">Vary: Accept-Encoding</div><div class="line">Set-Cookie: BAIDUID=3CE4xxxxx7923E597290045712BD051:FG=1; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</div><div class="line">Set-Cookie: BIDUPSID=3CE4Fxxxxx7923E597290045712BD051; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</div><div class="line">Set-Cookie: PSTM=1490281651; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</div><div class="line">P3P: CP=&quot; OTI DSP COR IVA OUR IND COM &quot;</div><div class="line">Server: BWS/1.1</div><div class="line">X-UA-Compatible: IE=Edge,chrome=1</div><div class="line">Pragma: no-cache</div><div class="line">Cache-control: no-cache</div><div class="line">Accept-Ranges: bytes</div></pre></td></tr></table></figure></p>
 
       
       
@@ -317,7 +322,7 @@
         <p><span>本文标题:</span><a href="/2017/01/21/pythonS02E03/">Python高级编程:网络编程</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Ding  Jian 的个人博客">Ding  Jian</a></p>
         <p><span>发布时间:</span>2017年01月21日 - 08时36分</p>
-        <p><span>最后更新:</span>2017年03月23日 - 17时00分</p>
+        <p><span>最后更新:</span>2017年03月23日 - 23时20分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/01/21/pythonS02E03/" title="Python高级编程:网络编程">//aliengeeker.github.io/2017/01/21/pythonS02E03/</a>
             <span class="copy-path" data-clipboard-text="原文: //aliengeeker.github.io/2017/01/21/pythonS02E03/　　作者: Ding  Jian" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -355,7 +360,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP编程"><span class="toc-number">1.</span> <span class="toc-text">TCP编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#读取百度的首页-打印http头-然后把网页内容存进baidu-html"><span class="toc-number">1.1.</span> <span class="toc-text">读取百度的首页,打印http头,然后把网页内容存进baidu.html</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -437,7 +442,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/19/pythonS01E01/">《Re：从零开始的Python世界生活》S01E01:Print函数的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/pythonS02E01/">Python高级编程:进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/22/lantern/">解决安装Lantern蓝灯之后IE无法上网的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/pythonS02E03/">Python高级编程:网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/pythonS02E02/">Python高级编程:线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/MySQLS01E01/">MySQL教程之:从删库到跑路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/hello-world/">Hexo简易使用说明</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/ruby/">Ruby快速入门(自学笔记)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/19/pythonS01E01/">《Re：从零开始的Python世界生活》S01E01:Print函数的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/pythonS02E01/">Python高级编程:进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/22/lantern/">解决安装Lantern蓝灯之后IE无法上网的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/pythonS02E03/">Python高级编程:网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/pythonS02E02/">Python高级编程:线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/MySQLS01E01/">MySQL教程之:从删库到跑路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/hello-world/">Hexo简易使用说明</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

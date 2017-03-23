@@ -144,7 +144,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+                        <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
                     </div>
                 </section>
                 
@@ -221,6 +221,73 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-ruby" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/21/ruby/" class="article-date">
+      <time datetime="2017-03-21T00:36:54.000Z" itemprop="datePublished">2017-03-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/21/ruby/">Ruby快速入门(自学笔记)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p> <center><img src="https://raw.githubusercontent.com/aliengeeker/aliengeeker.github.io/master/img/ruby.jpg" width="400" height="200" alt="网络"></center></p>
+<h1 id="Ruby-快速入门"><a href="#Ruby-快速入门" class="headerlink" title="Ruby 快速入门"></a>Ruby 快速入门</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介:"></a>简介:</h2><p>Ruby其实和Python其实没有什么差别,会Python就基本上会Ruby了.</p>
+<h2 id="第一个Ruby程序"><a href="#第一个Ruby程序" class="headerlink" title="第一个Ruby程序"></a>第一个Ruby程序</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">puts <span class="string">"hello world!"</span><span class="comment">#&#123;注释&#125;</span></div></pre></td></tr></table></figure>
+<p>Ruby的注释也是采用#<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">puts <span class="string">"hello world! <span class="subst">#&#123;<span class="number">61</span>/<span class="number">3</span>&#125;</span>"</span></div><div class="line">puts <span class="number">3</span>+<span class="number">5</span></div></pre></td></tr></table></figure></p>
+<p>结果:hello world! 20;8</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby/">Ruby</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-pythonS01E01" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -471,6 +538,8 @@
       
           
         <p> <center><img src="https://raw.githubusercontent.com/aliengeeker/aliengeeker.github.io/master/img/wangluo.jpg" width="400" height="200" alt="网络"></center></p>
+<h2 id="TCP编程"><a href="#TCP编程" class="headerlink" title="TCP编程"></a>TCP编程</h2><h3 id="读取百度的首页-打印http头-然后把网页内容存进baidu-html"><a href="#读取百度的首页-打印http头-然后把网页内容存进baidu-html" class="headerlink" title="读取百度的首页,打印http头,然后把网页内容存进baidu.html"></a>读取百度的首页,打印http头,然后把网页内容存进baidu.html</h3> <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#导入socket库</span></div><div class="line"><span class="keyword">import</span> socket</div><div class="line"><span class="comment">#创建一个socket</span></div><div class="line">s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)</div><div class="line"><span class="comment">#如果是ipv6,那么就是INET6,SOCK_STREAM为面向流的TCP协议</span></div><div class="line"><span class="comment">#然后建立一个连接</span></div><div class="line">s.connect((<span class="string">'www.baidu.com'</span>,<span class="number">80</span>))</div><div class="line"><span class="comment">#注意里面的参数为一个tuple,地址要加引号,端口不要引号</span></div><div class="line"><span class="comment">#建立连接之后向百度发送request,然后等待response.</span></div><div class="line">s.send(<span class="string">b'GET / HTTP/1.1\r\nHost:www.baidu.com\r\nConnection:close\r\n\r\n'</span>)</div><div class="line"><span class="comment">#接下来就是接受数据和写入数据了</span></div><div class="line">buffer =[]<span class="comment">#建立一个空列表</span></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    <span class="comment">#控制每一次接收数据的大小</span></div><div class="line">    d = s.recv(<span class="number">1024</span>)</div><div class="line">    <span class="keyword">if</span> d:<span class="comment">#如果数据不为空</span></div><div class="line">        buffer.append(d)</div><div class="line">        <span class="comment">#就把数据片段加入d列表</span></div><div class="line">    <span class="keyword">else</span>:<span class="comment">#如果数据为空了</span></div><div class="line">        <span class="keyword">break</span><span class="comment">#退出循环</span></div><div class="line">data = <span class="string">b''</span>.join(buffer)<span class="comment">#在buffer列表里加上b",同时把列表合并了</span></div><div class="line">s.close()<span class="comment">#关闭socket</span></div><div class="line"><span class="comment">#接下来就要保存文件了</span></div><div class="line">header,html = data.split(<span class="string">b'\r\n\r\n'</span>,<span class="number">1</span>)</div><div class="line"><span class="comment">#把数据切分,然后解包,前面的赋值给header,后面的赋值给HTML</span></div><div class="line">print(header.decode(<span class="string">'utf-8'</span>))</div><div class="line"><span class="comment">#解码之后打印</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'baidu.html'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.write(html)</div></pre></td></tr></table></figure>
+<p>http头信息如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 200 OK</div><div class="line">Date: Thu, 23 Mar 2017 15:07:31 GMT</div><div class="line">Content-Type: text/html</div><div class="line">Content-Length: 14613</div><div class="line">Last-Modified: Tue, 14 Mar 2017 07:30:00 GMT</div><div class="line">Connection: Close</div><div class="line">Vary: Accept-Encoding</div><div class="line">Set-Cookie: BAIDUID=3CE4xxxxx7923E597290045712BD051:FG=1; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</div><div class="line">Set-Cookie: BIDUPSID=3CE4Fxxxxx7923E597290045712BD051; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</div><div class="line">Set-Cookie: PSTM=1490281651; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</div><div class="line">P3P: CP=&quot; OTI DSP COR IVA OUR IND COM &quot;</div><div class="line">Server: BWS/1.1</div><div class="line">X-UA-Compatible: IE=Edge,chrome=1</div><div class="line">Pragma: no-cache</div><div class="line">Cache-control: no-cache</div><div class="line">Accept-Ranges: bytes</div></pre></td></tr></table></figure></p>
 
       
       
