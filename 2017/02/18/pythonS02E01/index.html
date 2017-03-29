@@ -5,17 +5,26 @@
   
   <title>Python高级编程:进程 | Ding Jian&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="进程 简介:什么是进程:先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)">
+  <meta name="description" content="进程 简介:打开Windows任务管理器,里面的都是进程.
+python进程编程:由于fork()函数不能跨平台,只能在Linux的系统运行,所以这里只介绍multiprocessing模块的多进程编程.
+multiprocessing模块 里面有一个Process类,在每个系统调用的系统函数都不一样,但是在Python里面都一样的用.
+例子11234567891011121314151617">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python高级编程:进程">
 <meta property="og:url" content="//aliengeeker.github.io/2017/02/18/pythonS02E01/index.html">
 <meta property="og:site_name" content="Ding Jian's Blog">
-<meta property="og:description" content="进程 简介:什么是进程:先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)">
+<meta property="og:description" content="进程 简介:打开Windows任务管理器,里面的都是进程.
+python进程编程:由于fork()函数不能跨平台,只能在Linux的系统运行,所以这里只介绍multiprocessing模块的多进程编程.
+multiprocessing模块 里面有一个Process类,在每个系统调用的系统函数都不一样,但是在Python里面都一样的用.
+例子11234567891011121314151617">
 <meta property="og:image" content="https://raw.githubusercontent.com/aliengeeker/aliengeeker.github.io/master/img/jincheng.jpg">
-<meta property="og:updated_time" content="2017-03-22T15:22:01.371Z">
+<meta property="og:updated_time" content="2017-03-24T15:14:23.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python高级编程:进程">
-<meta name="twitter:description" content="进程 简介:什么是进程:先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)">
+<meta name="twitter:description" content="进程 简介:打开Windows任务管理器,里面的都是进程.
+python进程编程:由于fork()函数不能跨平台,只能在Linux的系统运行,所以这里只介绍multiprocessing模块的多进程编程.
+multiprocessing模块 里面有一个Process类,在每个系统调用的系统函数都不一样,但是在Python里面都一样的用.
+例子11234567891011121314151617">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/aliengeeker/aliengeeker.github.io/master/img/jincheng.jpg">
   
   
@@ -144,7 +153,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+                        <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
                     </div>
                 </section>
                 
@@ -263,7 +272,26 @@
       
           
         <p> <center><img src="https://raw.githubusercontent.com/aliengeeker/aliengeeker.github.io/master/img/jincheng.jpg" width="400" height="500" alt="网络"></center></p>
-<h1 id="进程-简介"><a href="#进程-简介" class="headerlink" title="进程 简介:"></a>进程 简介:</h1><h2 id="什么是进程"><a href="#什么是进程" class="headerlink" title="什么是进程:"></a>什么是进程:</h2><h2 id="先占个坑-后面有时间再慢慢写-嘿嘿-←-←"><a href="#先占个坑-后面有时间再慢慢写-嘿嘿-←-←" class="headerlink" title="先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)"></a>先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)</h2>
+<h2 id="进程-简介"><a href="#进程-简介" class="headerlink" title="进程 简介:"></a>进程 简介:</h2><p>打开Windows任务管理器,里面的都是进程.</p>
+<h2 id="python进程编程"><a href="#python进程编程" class="headerlink" title="python进程编程:"></a>python进程编程:</h2><p>由于fork()函数不能跨平台,只能在Linux的系统运行,所以这里只介绍multiprocessing模块的多进程编程.</p>
+<p>multiprocessing模块 里面有一个Process类,在每个系统调用的系统函数都不一样,但是在Python里面都一样的用.</p>
+<h3 id="例子1"><a href="#例子1" class="headerlink" title="例子1"></a>例子1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding=utf-8</span></div><div class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="comment"># 子进程要执行的代码</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_proc</span><span class="params">(name)</span>:</span></div><div class="line">    print(<span class="string">'子进程运行中，name= %s ,pid=%d...'</span> % (name, os.getpid()))</div><div class="line">    i = <span class="number">1</span></div><div class="line">    <span class="keyword">while</span> i&lt;=<span class="number">60</span>:<span class="comment">#子进程需要执行1分钟</span></div><div class="line">        print(i)</div><div class="line">        i+=<span class="number">1</span></div><div class="line">        time.sleep(<span class="number">1</span>)</div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    print(<span class="string">'父进程 %d.'</span> % os.getppid())</div><div class="line">    <span class="comment">#args需要四个参数,所以一定要写逗号</span></div><div class="line">    p = Process(target=run_proc, args=(<span class="string">'test'</span>,))<span class="comment">#主要参数后面的逗号,代表元组</span></div><div class="line">    print(<span class="string">'子进程将要执行'</span>)</div><div class="line">    p.start()</div><div class="line">    p.join(<span class="number">5</span>)<span class="comment">#join单位为秒超时之后并不会结束进程,而是直接继续后面的代码</span></div><div class="line">    print(<span class="string">'进程是否还在运行'</span>, p.is_alive())</div><div class="line">    p.terminate()<span class="comment">#结束子进程</span></div><div class="line">    print(<span class="string">'进程结束%d'</span>)</div></pre></td></tr></table></figure>
+<p>注意:</p>
+<ul>
+<li>Process 方法是需要开头字母大写的.</li>
+<li>创建进程需要先创建一个实例对象,然后给target参数.</li>
+<li>pid 进程id ,ppid 父进程id ,uid 用户id</li>
+<li>join([timeous])可以直接设置超时单位秒</li>
+<li>terminate()终止进程</li>
+<li>time.ctime:显示年月日时间</li>
+<li>time.time:精确显示时间,返回当前时间的时间戳（1970纪元后经过的浮点秒数）。</li>
+</ul>
+<h3 id="例子2"><a href="#例子2" class="headerlink" title="例子2"></a>例子2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="comment"># 子进程要执行的代码</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">newprocess</span><span class="params">(Process)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">while</span> <span class="number">1</span>:</div><div class="line">            print(<span class="string">'运行run方法进程'</span>)</div><div class="line">            time.sleep(<span class="number">1</span>)</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    p = newprocess()</div><div class="line">    p.start()</div><div class="line">    <span class="keyword">while</span> <span class="number">1</span>:</div><div class="line">        print(<span class="string">'运行main进程'</span>)</div><div class="line">        time.sleep(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li>process.start()方法会直接调用run方法</li>
+</ul>
+<h2 id="进程池pool"><a href="#进程池pool" class="headerlink" title="进程池pool"></a>进程池pool</h2><p>待续……</p>
+
       
       
         <div class="page-reward">
@@ -320,7 +348,7 @@
         <p><span>本文标题:</span><a href="/2017/02/18/pythonS02E01/">Python高级编程:进程</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Ding  Jian 的个人博客">Ding  Jian</a></p>
         <p><span>发布时间:</span>2017年02月18日 - 19时52分</p>
-        <p><span>最后更新:</span>2017年03月22日 - 23时22分</p>
+        <p><span>最后更新:</span>2017年03月24日 - 23时14分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/02/18/pythonS02E01/" title="Python高级编程:进程">//aliengeeker.github.io/2017/02/18/pythonS02E01/</a>
             <span class="copy-path" data-clipboard-text="原文: //aliengeeker.github.io/2017/02/18/pythonS02E01/　　作者: Ding  Jian" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -358,7 +386,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#进程-简介"><span class="toc-number">1.</span> <span class="toc-text">进程 简介:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是进程"><span class="toc-number">1.1.</span> <span class="toc-text">什么是进程:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#先占个坑-后面有时间再慢慢写-嘿嘿-←-←"><span class="toc-number">1.2.</span> <span class="toc-text">先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#进程-简介"><span class="toc-number">1.</span> <span class="toc-text">进程 简介:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python进程编程"><span class="toc-number">2.</span> <span class="toc-text">python进程编程:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子1"><span class="toc-number">2.1.</span> <span class="toc-text">例子1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例子2"><span class="toc-number">2.2.</span> <span class="toc-text">例子2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程池pool"><span class="toc-number">3.</span> <span class="toc-text">进程池pool</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -440,7 +468,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/ruby/">Ruby快速入门(自学笔记)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/19/pythonS01E01/">《Re：从零开始的Python世界生活》S01E01:Print函数的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/pythonS02E01/">Python高级编程:进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/22/lantern/">解决安装Lantern蓝灯之后IE无法上网的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/pythonS02E03/">Python高级编程:网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/pythonS02E02/">Python高级编程:线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/MySQLS01E01/">MySQL教程之:从删库到跑路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/hello-world/">Hexo简易使用说明</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/quant01/">Python量化交易:01-量化交易基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/ruby/">Ruby快速入门(自学笔记)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/19/pythonS01E01/">《Re：从零开始的Python世界生活》S01E01:Print函数的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/pythonS02E01/">Python高级编程:进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/22/lantern/">解决安装Lantern蓝灯之后IE无法上网的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/21/pythonS02E03/">Python高级编程:网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/MySQLS01E01/">MySQL教程之:从删库到跑路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/pythonS02E02/">Python高级编程:线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/hello-world/">Hexo简易使用说明</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/pythonS01E02/">Linux 基本命令</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

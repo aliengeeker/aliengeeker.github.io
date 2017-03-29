@@ -144,7 +144,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+                        <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
                     </div>
                 </section>
                 
@@ -221,6 +221,61 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-quant01" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/27/quant01/" class="article-date">
+      <time datetime="2017-03-27T00:58:03.000Z" itemprop="datePublished">2017-03-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/27/quant01/">Python量化交易:01-量化交易基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="量化交易基础简介"><a href="#量化交易基础简介" class="headerlink" title="量化交易基础简介"></a>量化交易基础简介</h2><h3 id="复利"><a href="#复利" class="headerlink" title="复利"></a>复利</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sta</span><span class="params">(k, nyear, xd)</span>:</span></div><div class="line">    d2 = np.fv(k, nyear, -xd, -xd);</div><div class="line">    d2 = round(d2)</div><div class="line">    <span class="keyword">return</span> d2</div><div class="line">d10 = <span class="number">5</span> * <span class="number">10</span></div><div class="line">print(<span class="string">'d10:5 x 10 = '</span>, d10)</div><div class="line">d = sta(<span class="number">0.05</span>, <span class="number">10</span><span class="number">-1</span>, <span class="number">5</span>)</div><div class="line">print(<span class="string">'假设不考虑风险的情况下'</span>)</div><div class="line">print(<span class="string">'保守投资策略-存银行:'</span>, d, round(d / d10))</div><div class="line">d2  = sta(<span class="number">0.20</span>, <span class="number">10</span><span class="number">-1</span>, <span class="number">5</span>)</div><div class="line">print(<span class="string">'激进投资策略-证券投资:'</span>, d2, round(d2 / d10))</div><div class="line">print(<span class="string">'两者相差倍数:'</span>, round(d2/d))</div><div class="line">print(<span class="string">'两者相差金额:'</span>, d2-d)</div><div class="line">print(<span class="string">'以上结论都是在不考虑风险的情况下进行 '</span>)</div></pre></td></tr></table></figure>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-ruby" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -407,7 +462,26 @@
       
           
         <p> <center><img src="https://raw.githubusercontent.com/aliengeeker/aliengeeker.github.io/master/img/jincheng.jpg" width="400" height="500" alt="网络"></center></p>
-<h1 id="进程-简介"><a href="#进程-简介" class="headerlink" title="进程 简介:"></a>进程 简介:</h1><h2 id="什么是进程"><a href="#什么是进程" class="headerlink" title="什么是进程:"></a>什么是进程:</h2><h2 id="先占个坑-后面有时间再慢慢写-嘿嘿-←-←"><a href="#先占个坑-后面有时间再慢慢写-嘿嘿-←-←" class="headerlink" title="先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)"></a>先占个坑,后面有时间再慢慢写.嘿嘿 (← _ ←)</h2>
+<h2 id="进程-简介"><a href="#进程-简介" class="headerlink" title="进程 简介:"></a>进程 简介:</h2><p>打开Windows任务管理器,里面的都是进程.</p>
+<h2 id="python进程编程"><a href="#python进程编程" class="headerlink" title="python进程编程:"></a>python进程编程:</h2><p>由于fork()函数不能跨平台,只能在Linux的系统运行,所以这里只介绍multiprocessing模块的多进程编程.</p>
+<p>multiprocessing模块 里面有一个Process类,在每个系统调用的系统函数都不一样,但是在Python里面都一样的用.</p>
+<h3 id="例子1"><a href="#例子1" class="headerlink" title="例子1"></a>例子1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding=utf-8</span></div><div class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="comment"># 子进程要执行的代码</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_proc</span><span class="params">(name)</span>:</span></div><div class="line">    print(<span class="string">'子进程运行中，name= %s ,pid=%d...'</span> % (name, os.getpid()))</div><div class="line">    i = <span class="number">1</span></div><div class="line">    <span class="keyword">while</span> i&lt;=<span class="number">60</span>:<span class="comment">#子进程需要执行1分钟</span></div><div class="line">        print(i)</div><div class="line">        i+=<span class="number">1</span></div><div class="line">        time.sleep(<span class="number">1</span>)</div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    print(<span class="string">'父进程 %d.'</span> % os.getppid())</div><div class="line">    <span class="comment">#args需要四个参数,所以一定要写逗号</span></div><div class="line">    p = Process(target=run_proc, args=(<span class="string">'test'</span>,))<span class="comment">#主要参数后面的逗号,代表元组</span></div><div class="line">    print(<span class="string">'子进程将要执行'</span>)</div><div class="line">    p.start()</div><div class="line">    p.join(<span class="number">5</span>)<span class="comment">#join单位为秒超时之后并不会结束进程,而是直接继续后面的代码</span></div><div class="line">    print(<span class="string">'进程是否还在运行'</span>, p.is_alive())</div><div class="line">    p.terminate()<span class="comment">#结束子进程</span></div><div class="line">    print(<span class="string">'进程结束%d'</span>)</div></pre></td></tr></table></figure>
+<p>注意:</p>
+<ul>
+<li>Process 方法是需要开头字母大写的.</li>
+<li>创建进程需要先创建一个实例对象,然后给target参数.</li>
+<li>pid 进程id ,ppid 父进程id ,uid 用户id</li>
+<li>join([timeous])可以直接设置超时单位秒</li>
+<li>terminate()终止进程</li>
+<li>time.ctime:显示年月日时间</li>
+<li>time.time:精确显示时间,返回当前时间的时间戳（1970纪元后经过的浮点秒数）。</li>
+</ul>
+<h3 id="例子2"><a href="#例子2" class="headerlink" title="例子2"></a>例子2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="comment"># 子进程要执行的代码</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">newprocess</span><span class="params">(Process)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">while</span> <span class="number">1</span>:</div><div class="line">            print(<span class="string">'运行run方法进程'</span>)</div><div class="line">            time.sleep(<span class="number">1</span>)</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    p = newprocess()</div><div class="line">    p.start()</div><div class="line">    <span class="keyword">while</span> <span class="number">1</span>:</div><div class="line">        print(<span class="string">'运行main进程'</span>)</div><div class="line">        time.sleep(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li>process.start()方法会直接调用run方法</li>
+</ul>
+<h2 id="进程池pool"><a href="#进程池pool" class="headerlink" title="进程池pool"></a>进程池pool</h2><p>待续……</p>
+
       
       
     </div>
@@ -538,82 +612,35 @@
       
           
         <p> <center><img src="https://raw.githubusercontent.com/aliengeeker/aliengeeker.github.io/master/img/wangluo.jpg" width="400" height="200" alt="网络"></center></p>
-<h2 id="TCP编程"><a href="#TCP编程" class="headerlink" title="TCP编程"></a>TCP编程</h2><h3 id="读取百度的首页-打印http头-然后把网页内容存进baidu-html"><a href="#读取百度的首页-打印http头-然后把网页内容存进baidu-html" class="headerlink" title="读取百度的首页,打印http头,然后把网页内容存进baidu.html"></a>读取百度的首页,打印http头,然后把网页内容存进baidu.html</h3> <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#导入socket库</span></div><div class="line"><span class="keyword">import</span> socket</div><div class="line"><span class="comment">#创建一个socket</span></div><div class="line">s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)</div><div class="line"><span class="comment">#如果是ipv6,那么就是INET6,SOCK_STREAM为面向流的TCP协议</span></div><div class="line"><span class="comment">#然后建立一个连接</span></div><div class="line">s.connect((<span class="string">'www.baidu.com'</span>,<span class="number">80</span>))</div><div class="line"><span class="comment">#注意里面的参数为一个tuple,地址要加引号,端口不要引号</span></div><div class="line"><span class="comment">#建立连接之后向百度发送request,然后等待response.</span></div><div class="line">s.send(<span class="string">b'GET / HTTP/1.1\r\nHost:www.baidu.com\r\nConnection:close\r\n\r\n'</span>)</div><div class="line"><span class="comment">#接下来就是接受数据和写入数据了</span></div><div class="line">buffer =[]<span class="comment">#建立一个空列表</span></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    <span class="comment">#控制每一次接收数据的大小</span></div><div class="line">    d = s.recv(<span class="number">1024</span>)</div><div class="line">    <span class="keyword">if</span> d:<span class="comment">#如果数据不为空</span></div><div class="line">        buffer.append(d)</div><div class="line">        <span class="comment">#就把数据片段加入d列表</span></div><div class="line">    <span class="keyword">else</span>:<span class="comment">#如果数据为空了</span></div><div class="line">        <span class="keyword">break</span><span class="comment">#退出循环</span></div><div class="line">data = <span class="string">b''</span>.join(buffer)<span class="comment">#在buffer列表里加上b",同时把列表合并了</span></div><div class="line">s.close()<span class="comment">#关闭socket</span></div><div class="line"><span class="comment">#接下来就要保存文件了</span></div><div class="line">header,html = data.split(<span class="string">b'\r\n\r\n'</span>,<span class="number">1</span>)</div><div class="line"><span class="comment">#把数据切分,然后解包,前面的赋值给header,后面的赋值给HTML</span></div><div class="line">print(header.decode(<span class="string">'utf-8'</span>))</div><div class="line"><span class="comment">#解码之后打印</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'baidu.html'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.write(html)</div></pre></td></tr></table></figure>
-<p>http头信息如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 200 OK</div><div class="line">Date: Thu, 23 Mar 2017 15:07:31 GMT</div><div class="line">Content-Type: text/html</div><div class="line">Content-Length: 14613</div><div class="line">Last-Modified: Tue, 14 Mar 2017 07:30:00 GMT</div><div class="line">Connection: Close</div><div class="line">Vary: Accept-Encoding</div><div class="line">Set-Cookie: BAIDUID=3CE4xxxxx7923E597290045712BD051:FG=1; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</div><div class="line">Set-Cookie: BIDUPSID=3CE4Fxxxxx7923E597290045712BD051; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</div><div class="line">Set-Cookie: PSTM=1490281651; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com</div><div class="line">P3P: CP=&quot; OTI DSP COR IVA OUR IND COM &quot;</div><div class="line">Server: BWS/1.1</div><div class="line">X-UA-Compatible: IE=Edge,chrome=1</div><div class="line">Pragma: no-cache</div><div class="line">Cache-control: no-cache</div><div class="line">Accept-Ranges: bytes</div></pre></td></tr></table></figure></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/编程/">编程</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-pythonS02E02" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/19/pythonS02E02/" class="article-date">
-      <time datetime="2017-01-19T11:52:15.000Z" itemprop="datePublished">2017-01-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/19/pythonS02E02/">Python高级编程:线程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="线程-thread简介"><a href="#线程-thread简介" class="headerlink" title="线程-thread简介:"></a>线程-thread简介:</h2><ul>
-<li><p>如果说多进程就是多开QQ,那么多线程就是在一个QQ内同时多个窗口聊天.迅雷等下载软件为什么能够提速?迅雷先将需要下载的内容进行分块,利用多线程链接多个IP同时下载,从而实现下载加速.BT下载人越多,打开的线程越多,下载就越快,也是一样的道理.</p>
+<h2 id="网络概述"><a href="#网络概述" class="headerlink" title="网络概述"></a>网络概述</h2><h2 id="udp-编程"><a href="#udp-编程" class="headerlink" title="udp 编程"></a>udp 编程</h2><ul>
+<li>udp广播:内网的每一台电脑都能接受到主机的数据.实际情况主机并没有给所有机器都发送一遍,而是主机先把数据发送给交换机,交换机的转发效率高很多,这样比直接用主机发送更快,而且不会网络堵塞.</li>
+<li>单播: 点对点</li>
+<li>多播: 点对多</li>
+<li>广播: 点对所有</li>
+<li>现在的流行的直播,飞秋在内网的上线和下线通知.</li>
+<li><p>使用广播的前提:先创建一个套接字socket,然后设置udp参数.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">improt socket,sys</div><div class="line">dest = (<span class="string">'broadcast'</span>,<span class="number">7788</span>)<span class="comment">#ip需要引号,但是端口号不需要引号.</span></div><div class="line">s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)</div><div class="line">s.setsocketopt(socket.SOL_SOCKET,socket.SO_BROASCAST,<span class="number">1</span>)</div><div class="line">s.sendto(<span class="string">'helloworld'</span>,dest)<span class="comment">#dest如果要广播,需要192.168.1.255</span></div></pre></td></tr></table></figure>
+<h2 id="TCP编程"><a href="#TCP编程" class="headerlink" title="TCP编程"></a>TCP编程</h2><ul>
+<li>TCP:传输控制协议,相对udp更加稳定.所以web服务器基本上都是使用TCP协议.  </li>
+<li>UDP: 用户数据包协议<h3 id="简易的单进程TCP服务器编程"><a href="#简易的单进程TCP服务器编程" class="headerlink" title="简易的单进程TCP服务器编程"></a>简易的单进程TCP服务器编程</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">from</span> socket <span class="keyword">import</span> *</div><div class="line"></div><div class="line">serSocket = socket(AF_INET, SOCK_STREAM)</div><div class="line"></div><div class="line"><span class="comment"># 重复使用绑定的信息</span></div><div class="line">serSocket.setsockopt(SOL_SOCKET, SO_REUSEADDR, <span class="number">1</span>)</div><div class="line"></div><div class="line">localAddr = (<span class="string">''</span>, <span class="number">7788</span>)</div><div class="line"></div><div class="line">serSocket.bind(localAddr)</div><div class="line"></div><div class="line">serSocket.listen(<span class="number">5</span>)</div><div class="line"></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line"></div><div class="line">    print(<span class="string">'-开始主进程，，等待新客户端的到来-'</span>)</div><div class="line"></div><div class="line">    newSocket,destAddr = serSocket.accept()</div><div class="line"></div><div class="line">    print(<span class="string">'来自%s的客户端已经链接'</span>%str(destAddr))</div><div class="line">    <span class="comment">#这里需要注意,destaddr是一个tuple,需要先进行str装换才能print</span></div><div class="line"></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">            recvData = newSocket.recv(<span class="number">1024</span>)</div><div class="line">            <span class="keyword">if</span> len(recvData)&gt;<span class="number">0</span>:</div><div class="line">                print(<span class="string">'收到[%s]的数据:%s'</span>%(str(destAddr), recvData))</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                print(<span class="string">'[%s]客户端已经关闭'</span>%str(destAddr))</div><div class="line">                <span class="keyword">break</span></div><div class="line">    <span class="keyword">finally</span>:</div><div class="line">        newSocket.close()</div><div class="line"></div><div class="line">serSocket.close()</div></pre></td></tr></table></figure>
 </li>
-<li><p>进程需要资源分配,线程只是进程里面CPU调度和分配的基本单位.一个进程至少有一个线程.线程占用资源少,并发性高.线程也是完成多任务的一种实现方式.Python的threading模块是对thread做了一些包装,更加方便调用.</p>
-</li>
-<li><p>线程分为主线程和子线程.主线程需要判断子线程全部结束,才会结束自己.</p>
-<h2 id="线程例子1"><a href="#线程例子1" class="headerlink" title="线程例子1:"></a>线程例子1:</h2></li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding=utf-8</span></div><div class="line"><span class="keyword">import</span> threading <span class="comment">#导入模块</span></div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Download</span><span class="params">()</span>:</span><span class="comment">#定义函数</span></div><div class="line">    print(<span class="string">"下载1MB文件"</span>)<span class="comment">#我们假装实际下载了1M文件.</span></div><div class="line">    time.sleep(<span class="number">1</span>)<span class="comment">#延时1s</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:<span class="comment">#模块测试</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):<span class="comment">#遍历5次</span></div><div class="line">        t = threading.Thread(target=Download)<span class="comment">#调用多线程同时执行</span></div><div class="line">        t.start() <span class="comment">#开始线程t</span></div><div class="line">        <span class="comment">#Download() #单线程模式,顺序执行</span></div></pre></td></tr></table></figure>
-<p>如果只调用Download()为顺序执行5次,但是如果使用threading.Thread(),可以一次性全部执行.</p>
-<h2 id="线程例子2"><a href="#线程例子2" class="headerlink" title="线程例子2:"></a>线程例子2:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTread</span><span class="params">(threading.Thread)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">            time.sleep(<span class="number">1</span>)</div><div class="line">            msg = <span class="string">'我是'</span>+self.name+<span class="string">'@'</span>+str(i)</div><div class="line">            print(msg)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'对象引用计数为0,进程线程结束'</span>)</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    t = MyTread()</div><div class="line">    t.start()</div></pre></td></tr></table></figure>
-<h2 id="互斥锁"><a href="#互斥锁" class="headerlink" title="互斥锁"></a>互斥锁</h2>
+<h3 id="读取百度的首页-打印http头-然后把网页内容存进baidu-html"><a href="#读取百度的首页-打印http头-然后把网页内容存进baidu-html" class="headerlink" title="读取百度的首页,打印http头,然后把网页内容存进baidu.html"></a>读取百度的首页,打印http头,然后把网页内容存进baidu.html</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#导入socket库</span></div><div class="line"><span class="keyword">import</span> socket</div><div class="line"><span class="comment">#创建一个socket</span></div><div class="line">s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)</div><div class="line"><span class="comment">#如果是ipv6,那么就是INET6,SOCK_STREAM为面向流的TCP协议</span></div><div class="line"><span class="comment">#然后建立一个连接</span></div><div class="line">s.connect((<span class="string">'www.baidu.com'</span>,<span class="number">80</span>))</div><div class="line"><span class="comment">#注意里面的参数为一个tuple,地址要加引号,端口不要引号</span></div><div class="line"><span class="comment">#建立连接之后向百度发送request,然后等待response.</span></div><div class="line">s.send(<span class="string">b'GET / HTTP/1.1\r\nHost:www.baidu.com\r\nConnection:close\r\n\r\n'</span>)</div><div class="line"><span class="comment">#接下来就是接受数据和写入数据了</span></div><div class="line">buffer =[]<span class="comment">#建立一个空列表</span></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    <span class="comment">#控制每一次接收数据的大小</span></div><div class="line">    d = s.recv(<span class="number">1024</span>)</div><div class="line">    <span class="keyword">if</span> d:<span class="comment">#如果数据不为空</span></div><div class="line">        buffer.append(d)</div><div class="line">        <span class="comment">#就把数据片段加入d列表</span></div><div class="line">    <span class="keyword">else</span>:<span class="comment">#如果数据为空了</span></div><div class="line">        <span class="keyword">break</span><span class="comment">#退出循环</span></div><div class="line">data = <span class="string">b''</span>.join(buffer)<span class="comment">#在buffer列表里加上b",同时把列表合并了</span></div><div class="line">s.close()<span class="comment">#关闭socket</span></div><div class="line"><span class="comment">#接下来就要保存文件了</span></div><div class="line">header,html = data.split(<span class="string">b'\r\n\r\n'</span>,<span class="number">1</span>)</div><div class="line"><span class="comment">#把数据切分,然后解包,前面的赋值给header,后面的赋值给HTML</span></div><div class="line">print(header.decode(<span class="string">'utf-8'</span>))</div><div class="line"><span class="comment">#解码之后打印</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'baidu.html'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.write(html)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>http头信息如下:<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="string">HTTP/1.1</span> <span class="number">200</span> <span class="string">OK</span></div><div class="line"><span class="attr">Date:</span> <span class="string">Thu,</span> <span class="number">23</span> <span class="string">Mar</span> <span class="number">2017</span> <span class="number">15</span><span class="string">:07:31</span> <span class="string">GMT</span></div><div class="line"><span class="attr">Content-Type:</span> <span class="string">text/html</span></div><div class="line"><span class="attr">Content-Length:</span> <span class="number">14613</span></div><div class="line"><span class="attr">Last-Modified:</span> <span class="string">Tue,</span> <span class="number">14</span> <span class="string">Mar</span> <span class="number">2017</span> <span class="number">07</span><span class="string">:30:00</span> <span class="string">GMT</span></div><div class="line"><span class="attr">Connection:</span> <span class="string">Close</span></div><div class="line"><span class="attr">Vary:</span> <span class="string">Accept-Encoding</span></div><div class="line"><span class="attr">Set-Cookie:</span> <span class="string">BAIDUID=3CE4xxxxx7923E597290045712BD051:FG=1;</span> <span class="string">expires=Thu,</span> <span class="number">31</span><span class="bullet">-Dec-37</span> <span class="number">23</span><span class="string">:55:55</span> <span class="string">GMT;</span> <span class="string">max-age=2147483647;</span> <span class="string">path=/;</span> <span class="string">domain=.baidu.com</span></div><div class="line"><span class="attr">Set-Cookie:</span> <span class="string">BIDUPSID=3CE4Fxxxxx7923E597290045712BD051;</span> <span class="string">expires=Thu,</span> <span class="number">31</span><span class="bullet">-Dec-37</span> <span class="number">23</span><span class="string">:55:55</span> <span class="string">GMT;</span> <span class="string">max-age=2147483647;</span> <span class="string">path=/;</span> <span class="string">domain=.baidu.com</span></div><div class="line"><span class="attr">Set-Cookie:</span> <span class="string">PSTM=1490281651;</span> <span class="string">expires=Thu,</span> <span class="number">31</span><span class="bullet">-Dec-37</span> <span class="number">23</span><span class="string">:55:55</span> <span class="string">GMT;</span> <span class="string">max-age=2147483647;</span> <span class="string">path=/;</span> <span class="string">domain=.baidu.com</span></div><div class="line"><span class="attr">P3P:</span> <span class="string">CP="</span> <span class="string">OTI</span> <span class="string">DSP</span> <span class="string">COR</span> <span class="string">IVA</span> <span class="string">OUR</span> <span class="string">IND</span> <span class="string">COM</span> <span class="string">"</span></div><div class="line">Server: BWS/1.1</div><div class="line">X-UA-Compatible: IE=Edge,chrome=1</div><div class="line">Pragma: no-cache</div><div class="line">Cache-control: no-cache</div><div class="line">Accept-Ranges: bytes</div></pre></td></tr></table></figure></p>
+<h2 id="tftp编程"><a href="#tftp编程" class="headerlink" title="tftp编程"></a>tftp编程</h2><h2 id="网络通信过程详解"><a href="#网络通信过程详解" class="headerlink" title="网络通信过程详解:"></a>网络通信过程详解:</h2><h3 id="Packet-Tracer-介绍"><a href="#Packet-Tracer-介绍" class="headerlink" title="Packet Tracer 介绍"></a>Packet Tracer 介绍</h3><p>Packet Tracer 是cisco 公司发布的一款计算机网络辅助学习工具.主要可以为初学者建立一个设计,配置,排除网络故障提供了网络模拟环境.</p>
+<h3 id="通过集线器组网"><a href="#通过集线器组网" class="headerlink" title="通过集线器组网"></a>通过集线器组网</h3><h4 id="通过hub链接网络"><a href="#通过hub链接网络" class="headerlink" title="通过hub链接网络"></a>通过hub链接网络</h4><ul>
+<li>hub可以完成多个电脑的链接</li>
+<li>没有数据包的发送都是以广播的形式进行的,很容易堵塞网络.</li>
+</ul>
+<h3 id="通过交换机组网"><a href="#通过交换机组网" class="headerlink" title="通过交换机组网"></a>通过交换机组网</h3><h4 id="网络交换机介绍"><a href="#网络交换机介绍" class="headerlink" title="网络交换机介绍"></a>网络交换机介绍</h4><ul>
+<li><p>网络交换机: 又称网络交换器,主要功能为扩大网络,为子网络提供更多的连接端口,可以连接更多的计算机.</p>
+</li>
+<li><p>转发过滤:</p>
+</li>
+</ul>
+
       
       
     </div>
@@ -711,6 +738,87 @@
 
 
   
+    <article id="post-pythonS02E02" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/19/pythonS02E02/" class="article-date">
+      <time datetime="2017-01-19T11:52:15.000Z" itemprop="datePublished">2017-01-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/19/pythonS02E02/">Python高级编程:线程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="线程-thread简介"><a href="#线程-thread简介" class="headerlink" title="线程-thread简介:"></a>线程-thread简介:</h2><ul>
+<li><p>如果说多进程就是多开QQ,那么多线程就是在一个QQ内同时多个窗口聊天.迅雷等下载软件为什么能够提速?迅雷先将需要下载的内容进行分块,利用多线程链接多个IP同时下载,从而实现下载加速.BT下载人越多,打开的线程越多,下载就越快,也是一样的道理.</p>
+</li>
+<li><p>进程需要资源分配,线程只是进程里面CPU调度和分配的基本单位.一个进程至少有一个线程.线程占用资源少,并发性高.线程也是完成多任务的一种实现方式.Python的threading模块是对thread做了一些包装,更加方便调用.</p>
+</li>
+<li><p>线程分为主线程和子线程.主线程需要判断子线程全部结束,才会结束自己.</p>
+</li>
+</ul>
+<h2 id="线程例子1"><a href="#线程例子1" class="headerlink" title="线程例子1:"></a>线程例子1:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding=utf-8</span></div><div class="line"><span class="keyword">import</span> threading <span class="comment">#导入模块</span></div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Download</span><span class="params">()</span>:</span><span class="comment">#定义函数</span></div><div class="line">    print(<span class="string">"下载1MB文件"</span>)<span class="comment">#我们假装实际下载了1M文件.</span></div><div class="line">    time.sleep(<span class="number">1</span>)<span class="comment">#延时1s</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:<span class="comment">#模块测试</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):<span class="comment">#遍历5次</span></div><div class="line">        t = threading.Thread(target=Download)<span class="comment">#调用多线程同时执行</span></div><div class="line">        t.start() <span class="comment">#开始线程t</span></div><div class="line">        <span class="comment">#Download() #单线程模式,顺序执行</span></div></pre></td></tr></table></figure>
+<p>如果只调用Download()为顺序执行5次,但是如果使用threading.Thread(),可以一次性全部执行.</p>
+<ul>
+<li>注意target=后面接函数名字,不能加(),加括号就相当于直接调用了函数.不加()就是只传过去地址,没有马上开始执行,等待start()函数统一执行.</li>
+</ul>
+<h2 id="线程例子2"><a href="#线程例子2" class="headerlink" title="线程例子2:"></a>线程例子2:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTread</span><span class="params">(threading.Thread)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">            time.sleep(<span class="number">1</span>)</div><div class="line">            msg = <span class="string">'我是'</span>+self.name+<span class="string">'@'</span>+str(i)</div><div class="line">            print(msg)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'对象引用计数为0,进程线程结束'</span>)</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    t = MyTread()</div><div class="line">    t.start()</div></pre></td></tr></table></figure>
+<h2 id="线程中的全局变量"><a href="#线程中的全局变量" class="headerlink" title="线程中的全局变量"></a>线程中的全局变量</h2><ul>
+<li>线程对全局变量的修改和使用</li>
+<li>对于多线程而言,全局变量全部是共享的.所以尽量避免对全局变量的操作.<br>*</li>
+</ul>
+<p>###</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -771,6 +879,103 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-pythonS01E02" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/15/pythonS01E02/" class="article-date">
+      <time datetime="2016-12-15T11:52:15.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/15/pythonS01E02/">Linux 基本命令</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="常用的Linux命令"><a href="#常用的Linux命令" class="headerlink" title="常用的Linux命令"></a>常用的Linux命令</h2><ul>
+<li>pwd: Print working directory</li>
+<li>man: manual</li>
+<li>su : swith user</li>
+<li>cd : change directory</li>
+<li>ls : list files</li>
+<li>ps : Process Status</li>
+<li>mkdir: Make Directory: -p:直接递归创建目录</li>
+<li>rmdir: remove directory</li>
+<li>mkfs: make file system</li>
+<li>fsck: file system check</li>
+<li>cat :concatenate</li>
+<li>uname: unix name</li>
+<li>df : disk free</li>
+<li>du : disk usage</li>
+<li>lsmod: list modules</li>
+<li>mv: move file</li>
+<li>rm: remove file</li>
+<li>cp: copy file</li>
+<li>ln: link files</li>
+<li>fg:foreground</li>
+<li>bg:background</li>
+<li>chown: change own</li>
+<li>chgrp: change group</li>
+<li>chmod: change mode</li>
+<li>umount:Umount</li>
+<li>dd:’cc’-convert an copy</li>
+<li>cc: c complier</li>
+<li>tar: tape archive</li>
+<li>ldd:list dynamic dependencies</li>
+<li>insmod: install module</li>
+<li>rmmod: remove module</li>
+<li>more:</li>
+<li>tree: 显示目录结构</li>
+</ul>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
     </div>
 
       
